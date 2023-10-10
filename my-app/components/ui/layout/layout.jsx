@@ -8,6 +8,7 @@ import { ManagedUIContext, useUI } from "@/lib/uiContext";
 import { CommerceProvider } from "@/lib/commerceProvider";
 import swellConfig from "@/config/swell.config";
 import { useEffect } from "react";
+import Footer from "../footer/footer";
 
 const Layout = ({ children }) => {
   const { displaySidebar, closeSidebar } = useUI();
@@ -49,7 +50,7 @@ const Layout = ({ children }) => {
         <Sidebar open={displaySidebar} onClose={closeSidebar}>
           <CartSidebarView />
         </Sidebar>
-        {/* <Footer /> */}
+        <Footer />
       </ManagedUIContext>
     </CommerceProvider>
   );

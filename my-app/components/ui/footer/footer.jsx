@@ -1,9 +1,8 @@
 import Image from "next/image";
 import styles from "./footer.module.css";
-import utilStyles from "../../styles/utils.module.css";
+import utilStyles from "@/styles/utils.module.css";
 import Link from "next/link";
-import layoutStyles from "../layout/layout.module.css";
-import logo from "../../public/images/logos/logo_text_right.png";
+import logo from "@/assets/logo/logo_text_right.png";
 import { footerData } from "@/data/footerData";
 
 const Footer = () => {

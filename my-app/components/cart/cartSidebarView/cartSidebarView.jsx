@@ -15,6 +15,7 @@ const CartSidebarView = () => {
   const total = getPrice(cart?.grand_total, cart?.currency ?? "USD");
   const shippingTotal = getPrice(cart?.shipment_total, cart?.currency ?? "USD");
   const taxTotal = getPrice(cart?.tax_total, cart?.currency ?? "USD");
+  console.log(cart);
 
   const items = cart?.items ?? [];
   const isEmpty = items.length === 0;

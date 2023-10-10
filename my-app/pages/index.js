@@ -1,8 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import Layout from "@/components/ui/layout/layout";
+import layoutStyles from "@/components/ui/layout/layout.module.css";
 
 export default function Home() {
   const siteTitle = "Shop Online | McMillan Farms Apparel";
@@ -16,7 +14,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      This is the store mcmillan farms
+      <section className={layoutStyles.section}>
+        This is the store mcmillan farms
+      </section>
     </Layout>
   );
 }

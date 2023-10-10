@@ -1,5 +1,5 @@
 import swell from "swell-js";
-import swellConfig from "../swell.config";
+import swellConfig from "@/config/swell.config";
 
 // export interface BuillderConfig {
 //     apiKey: string
@@ -7,33 +7,6 @@ import swellConfig from "../swell.config";
 //     collectionsModel: string
 //     isDemo?: boolean
 // }
-
-export const getCategoryByBoat = async (boatModel, boatMake) => {
-  await swell.init(swellConfig.storeId, swellConfig.publicKey);
-  const data = await fetch(
-    process.env.NODE_ENV === "production"
-      ? `https://cruiser-accessories.vercel.app/api/boat-categories?boat_model=${boatModel}&boat_make=${boatMake}}`
-      : `http://localhost:3000/api/boat-categories?boat_model=${boatModel}&boat_make=${boatMake}}`
-  );
-  const jsonData = await data.json();
-  const categories = jsonData.data.results.map((product) => {
-    return product.category_index;
-  });
-  const allCategories = [];
-  for (const category of categories) {
-    for (const id of category.id) {
-      const categoryName = await swell.categories.get(id);
-      allCategories.push(categoryName);
-    }
-  }
-  const formatted = {
-    count: Number(allCategories.length),
-    page_count: Math.ceil(allCategories.length / 24),
-    page: 1,
-    results: allCategories,
-  };
-  return formatted;
-};
 
 export const getFilteredProducts = async (query) => {
   await swell.init(swellConfig.storeId, swellConfig.publicKey);
@@ -97,27 +70,7 @@ export const getAllProducts = async (
     limit: limit,
     page: offset,
   });
-  // console.log(productResults);
-
-  // if (productResults.count > 24) {
-  //   let results = productResults.results;
-  //   const pages = [];
-  //   for (let i = 1; i <= productResults.page_count; i++) {
-  //     pages.push(i);
-  //   }
-  //   for (const page in pages) {
-  //     if (page !== 1) {
-  //       const nextPage = await swell.products.list({
-  //         limit: limit,
-  //         page: Number(page),
-  //       });
-  //       results = [...results].concat(nextPage.results);
-  //     }
-  //   }
-  //   return results ? normalizeProducts(results) : [];
-  // } else {
   return productResults ? normalizeProducts(productResults?.results) : [];
-  // }
 };
 
 export const getAllProductPaths = async () => {
