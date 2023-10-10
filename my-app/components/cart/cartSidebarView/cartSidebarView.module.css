@@ -1,0 +1,38 @@
+.wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: inherit;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.justifyContent {
+  justify-content: center;
+}
+
+/* //////////////////////////////////////////////////////////////// */
+/* /////////////////////////mobile styling///////////////////////// */
+/* //////////////////////////////////////////////////////////////// */
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column !important;
+  }
+  .wrapper {
+    justify-content: center;
+    margin: 0;
+  }
+  .wrapper > div {
+    padding: 0;
+    margin-bottom: 1em;
+  }
+}

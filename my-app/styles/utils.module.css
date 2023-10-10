@@ -1,0 +1,167 @@
+.greenText {
+  color: var(--green);
+}
+
+.whiteText {
+  color: white;
+}
+
+.width60 {
+  width: 60%;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.heading2Xl {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+  border-bottom: 3px solid black;
+}
+
+.headingXl {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+  border-bottom: 3px solid black;
+}
+
+.marginBottom1 {
+  margin-bottom: 1em;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.columnFlex {
+  flex-direction: column;
+}
+
+.headingLg {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 1rem 0;
+}
+
+.headingMd {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.borderCircle {
+  border-radius: 9999px;
+}
+
+.colorInherit {
+  color: inherit;
+}
+
+.padding1px {
+  padding-top: 1px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  margin: 0 0 1.25rem;
+}
+
+.lightText {
+  color: var(--lightGrey);
+}
+
+.sectionHeader {
+  border-bottom: 1px solid black;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.storiesHeight {
+  min-height: 600px;
+}
+
+.imageContain {
+  object-fit: contain;
+}
+
+.imageCover {
+  object-fit: cover;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.smallGap {
+  gap: 1em;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.white {
+  color: white;
+}
+
+.paddingBottom1 {
+  padding-bottom: 1em;
+}
+
+.paddingTop1 {
+  padding-top: 1em;
+}
+
+.cream {
+  background-color: var(--cream);
+}
+
+.borderBottomGrey {
+  border-bottom: 1px solid var(--grey);
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.width20 {
+  width: 20%;
+}
+
+.bullets {
+  list-style-type: disc;
+}
+
+.marginLeft {
+  margin-left: 1em;
+}
+/* //////////////////////////////////////////////////////////////// */
+/* /////////////////////////mobile styling///////////////////////// */
+/* //////////////////////////////////////////////////////////////// */
+
+@media (max-width: 600px) {
+  .width20 {
+    width: 100%;
+  }
+}

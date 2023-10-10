@@ -1,0 +1,51 @@
+.wrapper {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--cream);
+  background-color: var(--brown);
+  position: relative;
+  top: 0;
+  margin-bottom: 1.25em;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.wrapper div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  height: 100%;
+  gap: 0.5em;
+}
+
+.wrapper a {
+  border-bottom: 1px solid var(--cream);
+}
+
+.wrapper a:hover {
+  border-bottom: 1px solid var(--brown);
+}
+
+.hide {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* //////////////////////////////////////////////////////////////// */
+/* /////////////////////////mobile styling///////////////////////// */
+/* //////////////////////////////////////////////////////////////// */
+
+@media (max-width: 600px) {
+  .wrapper {
+    /* font-size: 10px; */
+    display: none;
+  }
+  .hide {
+    display: none;
+  }
+}
