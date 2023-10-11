@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.wrapper > div {
+  display: flex;
+  flex-direction: column;
+}

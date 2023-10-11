@@ -98,6 +98,8 @@ export const getAllProductPaths = async () => {
       }
     }
     return results?.map((entry) => entry.slug) || [];
+  } else {
+    return productResults.results.map((entry) => entry.slug) || [];
   }
 };
 
@@ -132,11 +134,12 @@ export const getPaginatedItems = async (pageNum, query) => {
   }
 };
 
-export const getPaginatedProducts = async (pageNum) => {
+export const getPaginatedProducts = async (pageNum, sort) => {
   await swell.init(swellConfig.storeId, swellConfig.publicKey);
   const products = await swell.products.list({
     limit: 24,
-    page: Number(pageNum),
+    page: !pageNum ? 1 : Number(pageNum),
+    sort: !sort ? "price desc" : sort,
   });
   return products ? normalizeProducts(products?.results) : [];
 };

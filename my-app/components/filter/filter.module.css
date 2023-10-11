@@ -1,0 +1,72 @@
+.container img {
+  margin-top: 0.25em;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 95px;
+}
+
+.container button {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--cream);
+  padding: 0;
+  padding-right: 2em;
+  padding-left: 1em;
+  margin-left: 1em;
+  background-color: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.wrapper h3 {
+  display: flex;
+  align-items: center;
+}
+
+.close {
+  opacity: 0;
+}
+
+.filterForm {
+  position: absolute;
+  top: 60px;
+  left: 15px;
+  z-index: 999;
+  background-color: var(--cream);
+  padding: 1em;
+  transition: all 0.3s ease-in-out;
+}
+
+.filterForm ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.open {
+  opacity: 1;
+}
+
+/* //////////////////////////////////////////////////////////////// */
+/* /////////////////////////mobile styling///////////////////////// */
+/* //////////////////////////////////////////////////////////////// */
+
+@media (max-width: 600px) {
+  .container {
+    margin-left: 0;
+  }
+}

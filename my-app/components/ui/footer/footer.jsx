@@ -4,8 +4,23 @@ import utilStyles from "@/styles/utils.module.css";
 import Link from "next/link";
 import logo from "@/assets/logo/logo_text_right.png";
 import { footerData } from "@/data/footerData";
+import { useEffect, useState } from "react";
+import { getPaginatedProducts } from "@/lib/operations-swell";
+import LoadingDots from "@/components/loadingDots/loadingDots";
 
 const Footer = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const results = await getPaginatedProducts();
+      setProducts(results);
+    };
+    if (!products.length) {
+      fetchProducts();
+    }
+  });
+
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
@@ -30,38 +45,54 @@ const Footer = () => {
                         {menuItem.name}
                       </Link>
                     </h3>
+                    <ul>
+                      {!menuItem.submenu.length ? (
+                        <></>
+                      ) : (
+                        menuItem.submenu.map((subMenuItem, index) => {
+                          return (
+                            <li key={index}>
+                              <Link
+                                className={styles.link}
+                                href={subMenuItem.link}
+                              >
+                                <span>
+                                  {subMenuItem.icon && subMenuItem.icon}
+                                </span>
+                                <span>{subMenuItem.name}</span>
+                              </Link>
+                            </li>
+                          );
+                        })
+                      )}
+                    </ul>
+                    {/* {menuItem.name.includes("Shop") && (
+                      <ul>
+                        {!products.length ? (
+                          <LoadingDots />
+                        ) : (
+                          products.map((product) => {
+                            return (
+                              <li key={index}>
+                                <Link
+                                  className={styles.link}
+                                  href={`/collections/${product.slug}`}
+                                > */}
+                    {/* <span>
+                                  {product.icon && product.icon}
+                                </span> */}
+                    {/* <span>{product.name}</span>
+                                </Link>
+                              </li>
+                            );
+                          })
+                        )}
+                      </ul>
+                    )} */}
                   </li>
-                  <ul>
-                    {menuItem.submenu.map((subMenuItem, index) => {
-                      return (
-                        <li key={index}>
-                          <Link className={styles.link} href={subMenuItem.link}>
-                            <span>{subMenuItem.icon && subMenuItem.icon}</span>
-                            <span>{subMenuItem.name}</span>
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
                 </ul>
               );
             })}
-            <ul className={styles.column} id={styles.hours}>
-              <li>
-                <h3>Hours of Operation</h3>
-              </li>
-              <ul>
-                <li>
-                  <h4>September 23 to October 30:</h4>
-                </li>
-                <li>Sunday to Wednesday: 10am to 5pm</li>
-                <li>Thursday to Saturday: 10am to 6pm</li>
-                <li>
-                  <h4>October 31:</h4>
-                </li>
-                <li>Tuesday: 10am to 2pm</li>
-              </ul>
-            </ul>
           </div>
         </div>
         <div className={styles.container}>

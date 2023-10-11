@@ -1,6 +1,7 @@
 :root {
   --white: #ffffff;
   --mobile-h: 21px;
+  --font-xsm: 10px;
   --font-sm: 16px;
   --font-med: 28px;
   --font-lg: 32px;
@@ -89,5 +90,9 @@ h6 {
   h1,
   h2 {
     font-size: var(--mobile-h);
+  }
+
+  h3 {
+    font-size: var(--font-sm);
   }
 }

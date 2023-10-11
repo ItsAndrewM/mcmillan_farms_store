@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper button {
+  transition: all 0.3s ease-in-out;
+}
+
+.wrapper button:hover {
+  background-color: var(--cream);
+}
+
+.wrapper button,
+.wrapper input {
+  border: none;
+  padding: 0 5px;
+  max-height: 30px;
+  height: 30px;
+  background-color: inherit;
+}
+
+.wrapper input {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+}
+
+.wrapper input::-webkit-outer-spin-button,
+.wrapper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.wrapper input[type="number"] {
+  -moz-appearance: textfield;
+}

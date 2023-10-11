@@ -10,12 +10,44 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
   gap: 1em;
+  justify-items: center;
 }
 
 .item {
   width: 100%;
+  max-width: 375px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.item h3,
+.item small {
+  text-align: left;
+}
+
+.item h3 {
+  font-size: var(--font-sm);
+}
+
+.item small {
+  width: 100%;
+  /* font-size: var(--font-xsm); */
+}
+
+/* //////////////////////////////////////////////////////////////// */
+/* /////////////////////////mobile styling///////////////////////// */
+/* //////////////////////////////////////////////////////////////// */
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  }
+  .item {
+    max-width: 150px;
+  }
+  .item h3 {
+    font-size: 14px;
+  }
 }
