@@ -13,10 +13,15 @@ export const useAddItemToCart = () => {
       setCart(newCart);
       return newCart;
     } else {
+      console.log("no options");
+      console.log(product_id);
+      console.log(quantity);
       const newCart = await swell.cart.addItem({
         product_id,
         quantity,
+        product_id,
       });
+      console.log(newCart);
       setCart(newCart);
       return newCart;
     }

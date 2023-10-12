@@ -1,0 +1,97 @@
+.wrapper {
+  width: 100%;
+  max-height: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 2em;
+  gap: 3em;
+}
+
+.container {
+  width: 800px;
+  max-width: 800px;
+  max-height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* overflow: hidden; */
+}
+
+.container img {
+  max-height: 540px;
+  object-fit: cover;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.textContainer p,
+.textContainer h1,
+.textContainer a {
+  text-align: left;
+}
+
+.textContainer h3 {
+  text-transform: uppercase;
+}
+
+.textContainer span > a {
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* .cream {
+  background-color: inherit;
+} */
+
+/* //////////////////////////////////////////////////////////////// */
+/* /////////////////////////mobile styling///////////////////////// */
+/* //////////////////////////////////////////////////////////////// */
+
+@media (max-width: 600px) {
+  .wrapper {
+    flex-direction: column;
+    padding: 1em;
+    max-height: fit-content;
+    /* height: 600px; */
+    background-color: inherit;
+  }
+
+  .container {
+    height: 100%;
+    max-height: fit-content;
+    width: 100%;
+  }
+
+  .container img {
+    max-height: 338px;
+    object-fit: contain;
+  }
+
+  .textContainer p,
+  .textContainer h1,
+  .textContainer a {
+    font-size: 15px;
+  }
+
+  .textContainer {
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+  }
+
+  .cream {
+    background-color: var(--cream);
+  }
+}

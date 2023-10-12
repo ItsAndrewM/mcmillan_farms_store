@@ -6,7 +6,7 @@ const Quantity = ({ setQuantity, quantity }) => {
   const handleQuantity = (e) => {
     const val = Number(e.target.value);
 
-    if (Number.isInteger(val) && val >= 0) {
+    if (Number.isInteger(val) && val > 0) {
       setQuantity(val);
     }
   };
@@ -14,7 +14,7 @@ const Quantity = ({ setQuantity, quantity }) => {
   const increaseQuantity = (n = 1) => {
     const val = Number(quantity) + n;
 
-    if (Number.isInteger(val) && val >= 0) {
+    if (Number.isInteger(val) && val > 0) {
       setQuantity(val);
     }
   };

@@ -14,8 +14,19 @@
   justify-content: center;
 }
 
-.alignCenter {
+.alignItemsCenter {
   align-items: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.letterSpacing {
+  letter-spacing: 1px;
+}
+.gap2 {
+  gap: 2em;
 }
 
 .heading2Xl {
@@ -38,10 +49,6 @@
 
 .marginBottom1 {
   margin-bottom: 1em;
-}
-
-.alignCenter {
-  align-items: center;
 }
 
 .columnFlex {
@@ -87,6 +94,10 @@
 
 .sectionHeader {
   border-bottom: 1px solid black;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .capitalize {

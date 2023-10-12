@@ -79,6 +79,7 @@ export const getAllProductPaths = async () => {
   const productResults = await swell.products.list({
     limit: 24,
     page: 1,
+    expand: "categories",
   });
   // console.log(productResults);
 
@@ -93,6 +94,7 @@ export const getAllProductPaths = async () => {
         const nextPage = await swell.products.list({
           limit: 24,
           page: Number(page),
+          expand: "categories",
         });
         results = [...results].concat(nextPage.results);
       }
@@ -140,6 +142,7 @@ export const getPaginatedProducts = async (pageNum, sort) => {
     limit: 24,
     page: !pageNum ? 1 : Number(pageNum),
     sort: !sort ? "price desc" : sort,
+    expand: "categories",
   });
   return products ? normalizeProducts(products?.results) : [];
 };
@@ -230,7 +233,7 @@ export const getAllCollectionPaths = async (config, limit) => {
     }
     return results?.map((entry) => entry.slug) || [];
   } else {
-    return categories?.map((entry) => entry.slug) || [];
+    return categories?.results.map((entry) => entry.slug) || [];
   }
 };
 
@@ -238,7 +241,7 @@ export const getAllCollectionPaths = async (config, limit) => {
 //   await swell.init(swellConfig.storeId, swellConfig.publicKey);
 // }
 
-export const getCollection = async (config, options, pageNum) => {
+export const getCollection = async (options, pageNum) => {
   if (Boolean(options.id) === Boolean(options.handle)) {
     throw new Error("Either a handle or id is required");
   }

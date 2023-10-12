@@ -1,33 +1,44 @@
-import Layout from "@/components/ui/layout/layout";
-import layoutStyles from "@/components/ui/layout/layout.module.css";
-import { getPaginatedProducts } from "@/lib/operations-swell";
-import styles from "@/styles/collections.module.css";
-import { Suspense, useState } from "react";
-import Loading from "./loading";
-import { useAddItemToCart } from "@/lib/hooks/useAddItemToCart";
-import { useUI } from "@/lib/uiContext";
 import LoadingDots from "@/components/loadingDots/loadingDots";
-import Filter from "@/components/filter/filter";
+import Layout from "@/components/ui/layout/layout";
+import { getAllCollectionPaths, getCollection } from "@/lib/operations-swell";
+import styles from "@/styles/collections.module.css";
 import Head from "next/head";
+import layoutStyles from "@/components/ui/layout/layout.module.css";
+import Link from "next/link";
+import Image from "next/image";
+import Filter from "@/components/filter/filter";
 import ProductGrid from "@/components/blocks/productGrid/productGrid";
 
-export async function getServerSideProps(context) {
-  const pageNum = !context.query?.page ? 1 : context.query?.page;
-  const sort = !context.query?.sort ? "price desc" : context.query?.sort;
-  const products = await getPaginatedProducts(pageNum, sort);
+export const getStaticPaths = async () => {
+  const paths = await getAllCollectionPaths();
+
+  return {
+    paths: paths?.map((path) => `/collections/${path}`) ?? [],
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params }) => {
+  const category = await getCollection({
+    handle: params?.category,
+  });
+
   return {
     props: {
       //   page: page || null,
-      products: products || null,
+      category: category || null,
     },
   };
-}
+};
 
-const Page = ({ products }) => {
+const Page = ({ category }) => {
+  if (!category) {
+    return <LoadingDots />;
+  }
   return (
     <Layout>
       <Head>
-        <title>Products | McMillan Farms</title>
+        <title>{`${category.name} | McMillan Farms`}</title>
         <meta
           name="description"
           content="Everything McMillan Farms apparel and merchandise.  Get your limited edition, high quality leisure wear and make sure you look good on and off the farm."
@@ -38,12 +49,12 @@ const Page = ({ products }) => {
       </Head>
       <section className={layoutStyles.section}>
         <div className={styles.container}>
-          <h1 style={{ textTransform: "uppercase" }}>Products</h1>
+          <h1 style={{ textTransform: "uppercase" }}>{category.name}</h1>
         </div>
         <Filter />
         <div className={styles.container}>
           {/* <Suspense fallback={<Loading />}> */}
-          <ProductGrid items={products} />
+          <ProductGrid items={category.products} />
           {/* </Suspense> */}
         </div>
       </section>

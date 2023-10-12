@@ -71,6 +71,7 @@ ul {
 button {
   padding: 0.5rem 1rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 h1,

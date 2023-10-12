@@ -5,10 +5,10 @@ import NavBar from "../header/navbar/navbar";
 import Sidebar from "@/components/cart/sidebar/sidebar";
 import CartSidebarView from "@/components/cart/cartSidebarView/cartSidebarView";
 import { ManagedUIContext, useUI } from "@/lib/uiContext";
-import { CommerceProvider } from "@/lib/commerceProvider";
 import swellConfig from "@/config/swell.config";
 import { useEffect } from "react";
 import Footer from "../footer/footer";
+import { CommerceProvider } from "@/lib/commerceProvider";
 
 const Layout = ({ children }) => {
   const { displaySidebar, closeSidebar } = useUI();

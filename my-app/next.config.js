@@ -25,6 +25,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/product",
+        destination: "/collections",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

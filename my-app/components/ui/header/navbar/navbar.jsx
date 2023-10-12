@@ -14,17 +14,28 @@ import { socialLinks } from "@/data/socialLinks";
 import AnnoucementBar from "../announcementBar/announcementBar";
 import Bag from "@/components/icons/bag";
 import UserNav from "@/components/cart/userNav/userNav";
+import { getAllCollections } from "@/lib/operations-swell";
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
   const [hours, setHours] = useState();
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
+  const [categories, setCategories] = useState([]);
   const [today, setToday] = useState(
     new Date().toLocaleDateString("en-us", { month: "long", day: "numeric" })
   );
 
   useEffect(() => {
+    const fetchCategories = async () => {
+      const categories = await getAllCollections();
+      setCategories(categories);
+    };
+
+    if (!categories.length) {
+      fetchCategories();
+    }
+
     const setTodaysHours = () => {
       let hours;
       switch (new Date().getDay()) {
@@ -147,49 +158,47 @@ const NavBar = () => {
           </ul>
         </div>
         <ul className={navbarStyles.menuItem}>
-          {menuItems.map((menuItem, index) => {
-            return (
-              <li key={index} onMouseEnter={menuItem.subMenu && handleClick}>
-                <Link
-                  href={menuItem.link}
-                  className={`${utilStyles.capitalize} ${
-                    pathname == menuItem.link
-                      ? layoutStyles.active
-                      : layoutStyles.link
-                  }`}
-                >
-                  {menuItem.name}
-                </Link>
-                {menuItem.subMenu && (
-                  <ul
-                    className={
-                      show == false
-                        ? navbarStyles.subMenuItemHide
-                        : navbarStyles.subMenuItemShow
-                    }
-                    onMouseLeave={handleLeave}
-                  >
-                    {menuItem.subMenu.map((subMenuItem, index) => {
-                      return (
-                        <li key={index}>
-                          <Link
-                            href={subMenuItem.link}
-                            className={`${utilStyles.capitalize} ${
-                              pathname == subMenuItem.link
-                                ? layoutStyles.active
-                                : layoutStyles.link
-                            }`}
-                          >
-                            {subMenuItem.name}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </li>
-            );
-          })}
+          <li key={"/collections"} onMouseEnter={handleClick}>
+            <Link
+              href={"/collections"}
+              className={`${utilStyles.capitalize} ${
+                pathname == "/collections"
+                  ? layoutStyles.active
+                  : layoutStyles.link
+              }`}
+            >
+              Shop
+            </Link>
+            {!categories.length ? (
+              <></>
+            ) : (
+              <ul
+                className={
+                  show == false
+                    ? navbarStyles.subMenuItemHide
+                    : navbarStyles.subMenuItemShow
+                }
+                onMouseLeave={handleLeave}
+              >
+                {categories.map((category) => {
+                  return (
+                    <li key={category.id}>
+                      <Link
+                        href={`/collections/${category.slug}`}
+                        className={`${utilStyles.capitalize} ${
+                          pathname.includes("/collection/" + category.slug)
+                            ? layoutStyles.active
+                            : layoutStyles.link
+                        }`}
+                      >
+                        {category.name}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </li>
         </ul>
         <Link href={"/"}>
           <Image

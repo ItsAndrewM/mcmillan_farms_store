@@ -9,6 +9,7 @@ export const CommerceProvider = ({ children }) => {
     await swell.init(swellConfig.storeId, swellConfig.publicKey);
   });
   const [cart, setCart] = useState(null);
+  console.log(cart);
 
   return (
     <Context.Provider
