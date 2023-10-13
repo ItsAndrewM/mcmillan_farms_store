@@ -53,6 +53,7 @@ const CartSidebarView = () => {
               <div className={styles.borderBottom}></div>
             </div>
             <div className={`${styles.wrapper}`}>
+              Shipping and taxes calculated at checkout
               <div className={styles.totals}>
                 <small className={`${utilStyles.uppercase} ${utilStyles.bold}`}>
                   Subtotal

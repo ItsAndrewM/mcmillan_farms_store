@@ -41,11 +41,13 @@ const Page = ({ products }) => {
           <h1 style={{ textTransform: "uppercase" }}>Products</h1>
         </div>
         <Filter />
-        <div className={styles.container}>
-          {/* <Suspense fallback={<Loading />}> */}
-          <ProductGrid items={products} />
-          {/* </Suspense> */}
-        </div>
+        {!products.length ? (
+          <Loading />
+        ) : (
+          <div className={styles.container}>
+            <ProductGrid items={products} />
+          </div>
+        )}
       </section>
     </Layout>
   );

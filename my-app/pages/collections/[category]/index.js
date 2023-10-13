@@ -8,6 +8,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Filter from "@/components/filter/filter";
 import ProductGrid from "@/components/blocks/productGrid/productGrid";
+import Loading from "../loading";
+import { Suspense } from "react";
 
 export const getStaticPaths = async () => {
   const paths = await getAllCollectionPaths();
@@ -33,7 +35,7 @@ export const getStaticProps = async ({ params }) => {
 
 const Page = ({ category }) => {
   if (!category) {
-    return <LoadingDots />;
+    return <Loading />;
   }
   return (
     <Layout>
@@ -53,9 +55,9 @@ const Page = ({ category }) => {
         </div>
         <Filter />
         <div className={styles.container}>
-          {/* <Suspense fallback={<Loading />}> */}
-          <ProductGrid items={category.products} />
-          {/* </Suspense> */}
+          <Suspense fallback={<Loading />}>
+            <ProductGrid items={category.products} />
+          </Suspense>
         </div>
       </section>
     </Layout>

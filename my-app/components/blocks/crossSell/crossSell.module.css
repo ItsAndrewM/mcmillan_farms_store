@@ -24,64 +24,18 @@
 
 @media (max-width: 600px) {
   .grid {
+    align-self: flex-start;
+    flex-wrap: nowrap;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    /* align-self: flex-start;
     overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-    max-width: 1400px;
-    width: 900px;
-    height: 330px; */
-    /* transform: translateX(0); */
+    gap: 3em;
   }
 
-  /* .grid-overflow-wrapper {
-    overflow: hidden;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 26.66667px;
+  .card p {
+    flex-wrap: wrap;
+    /* display: inline-block; */
   }
-
-  .grid-overflow-wrapper .grid {
-    white-space: nowrap;
-    display: flex;
+  .card {
+    min-width: 222px;
   }
-
-  .grid-overflow-wrapper .grid__item {
-    width: 66vw;
-    flex: 0 0 66vw;
-    display: inline-block;
-    float: none;
-    white-space: normal;
-  }
-
-  .grid-overflow-wrapper .grid__item:first-child {
-    margin-left: 20px;
-  }
-
-  .grid-overflow-wrapper .grid__item:last-child:after {
-    content: "";
-    display: inline-block;
-    width: 100%;
-    height: 1px;
-    margin-right: 20px;
-  }
-
-  .grid-overflow-wrapper .grid__item--view-all {
-    align-self: center;
-  }
-
-  .grid-overflow-wrapper .grid-product__content {
-    margin-bottom: 0;
-  }
-
-  [data-aos="overflow__animation"] {
-    transform: translateX(100vw);
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  [data-aos="overflow__animation"].aos-animate {
-    transform: translateX(0);
-  } */
 }

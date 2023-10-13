@@ -18,6 +18,7 @@ import { useAddItemToCart } from "@/lib/hooks/useAddItemToCart";
 import swellConfig from "@/config/swell.config";
 import swell from "swell-js";
 import { useUI } from "@/lib/uiContext";
+import Loading from "./loading";
 
 export const getStaticPaths = async () => {
   const paths = await getAllProductPaths();
@@ -83,7 +84,7 @@ const Page = ({ product, cross_sells }) => {
   if (!product && !cross_sells) {
     return (
       <Layout>
-        <LoadingDots />
+        <Loading />
       </Layout>
     );
   }
