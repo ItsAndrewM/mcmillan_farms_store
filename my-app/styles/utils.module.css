@@ -132,6 +132,10 @@
   text-align: center;
 }
 
+.alignLeft {
+  text-align: left;
+}
+
 .white {
   color: white;
 }

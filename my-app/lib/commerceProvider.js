@@ -5,12 +5,18 @@ import swellConfig from "../config/swell.config";
 import useSWR from "swr";
 
 export const CommerceProvider = ({ children }) => {
-  useSWR("swell", async () => {
+  const { data, error, isLoading, isValidating } = useSWR("swell", async () => {
     await swell.init(swellConfig.storeId, swellConfig.publicKey);
     await swell.currency.select("CAD");
   });
   const [cart, setCart] = useState(null);
-  console.log(cart);
+
+  // useEffect(() => {
+  //   console.log(isLoading);
+  //   if (!isLoading) {
+  //     console.log(data);
+  //   }
+  // }, [isLoading]);
 
   return (
     <Context.Provider

@@ -9,11 +9,13 @@ export const useCart = () => {
       try {
         const result = await swell.cart.get();
         setCart(result);
-      } catch (error) { }
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     fetchData();
   }, []);
 
   return cart;
-}
+};

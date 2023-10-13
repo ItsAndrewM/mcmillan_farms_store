@@ -15,6 +15,7 @@ import AnnoucementBar from "../announcementBar/announcementBar";
 import Bag from "@/components/icons/bag";
 import UserNav from "@/components/cart/userNav/userNav";
 import { getAllCollections } from "@/lib/operations-swell";
+import { useCart } from "@/lib/hooks/useCart";
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
@@ -22,6 +23,8 @@ const NavBar = () => {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
   const [categories, setCategories] = useState([]);
+  const cart = useCart();
+  const quantity = cart?.item_quantity ?? 0;
   const [today, setToday] = useState(
     new Date().toLocaleDateString("en-us", { month: "long", day: "numeric" })
   );
@@ -133,7 +136,29 @@ const NavBar = () => {
                 </li>
               );
             })}
-            <li className={navbarStyles.borderTop}>Open now! {hours}</li>
+            <li className={navbarStyles.borderTop}></li>
+            <li
+              className={navbarStyles.borderBottom}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Link
+                href={"/cart"}
+                className={layoutStyles.button}
+                style={{
+                  width: "100%",
+                  textAlign: "center",
+                  alignItems: "center",
+                }}
+              >
+                Cart ({quantity}) <Bag />
+              </Link>
+            </li>
+            <li
+              className={navbarStyles.borderTop}
+              style={{ border: "none", paddingTop: "0" }}
+            >
+              Open now! {hours}
+            </li>
             <li className={navbarStyles.borderBottom}>
               <Link
                 href={"https://www.showpass.com/o/mcmillan-farms/"}

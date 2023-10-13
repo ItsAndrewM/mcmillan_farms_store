@@ -17,6 +17,7 @@ const ProductCard = ({ item }) => {
       // openSidebar();
       setLoading(false);
     } catch (err) {
+      console.log(err);
       setLoading(false);
     }
   };
@@ -40,7 +41,7 @@ const ProductCard = ({ item }) => {
       </Link>
       <Link href={`/product/${item.slug}`}>
         <small>
-          {"CAD"}${item.price.toFixed(2)}
+          {item.currency} ${item.price.toFixed(2)}
         </small>
       </Link>
     </li>

@@ -7,15 +7,15 @@ import cartItemStyles from "../cartItem/cartItem.module.css";
 import Link from "next/link";
 import layoutStyles from "../../ui/layout/layout.module.css";
 import Bag from "@/components/icons/bag";
+import utilStyles from "@/styles/utils.module.css";
 
 const CartSidebarView = () => {
   const checkoutUrl = useCheckoutUrl();
   const cart = useCart();
-  const subTotal = getPrice(cart?.sub_total, cart?.currency ?? "USD");
-  const total = getPrice(cart?.grand_total, cart?.currency ?? "USD");
-  const shippingTotal = getPrice(cart?.shipment_total, cart?.currency ?? "USD");
-  const taxTotal = getPrice(cart?.tax_total, cart?.currency ?? "USD");
-  console.log(cart);
+  const subTotal = getPrice(cart?.sub_total, cart?.currency ?? "CAD");
+  const total = getPrice(cart?.grand_total, cart?.currency ?? "CAD");
+  const shippingTotal = getPrice(cart?.shipment_total, cart?.currency ?? "CAD");
+  const taxTotal = getPrice(cart?.tax_total, cart?.currency ?? "CAD");
 
   const items = cart?.items ?? [];
   const isEmpty = items.length === 0;
@@ -26,15 +26,23 @@ const CartSidebarView = () => {
       style={{ flexDirection: "column", alignItems: "center" }}
     >
       {isEmpty ? (
-        <>
-          <Bag />
-          Your bag is empty
-          <small className={cartItemStyles.smallText}>Continue browsing!</small>
-        </>
+        <div className={styles.container}>
+          <div className={`${styles.wrapper}`}>
+            <div className={styles.header}>
+              <h2>Cart</h2>
+            </div>
+            <div className={styles.empty}>
+              <small>Your cart is currently empty.</small>
+            </div>
+          </div>
+        </div>
       ) : (
         <>
           <div className={styles.container}>
             <div className={`${styles.wrapper}`}>
+              <div className={styles.header}>
+                <h2>Cart</h2>
+              </div>
               {items.map((item) => (
                 <CartItem
                   key={item.id}
@@ -42,9 +50,18 @@ const CartSidebarView = () => {
                   currencyCode={cart?.currency ?? "USD"}
                 />
               ))}
+              <div className={styles.borderBottom}></div>
             </div>
             <div className={`${styles.wrapper}`}>
-              {/* <Card sx={{ margin: "auto", minWidth: "10rem", paddingLeft: 5 }}>
+              <div className={styles.totals}>
+                <small className={`${utilStyles.uppercase} ${utilStyles.bold}`}>
+                  Subtotal
+                </small>
+                <small>{subTotal}</small>
+              </div>
+            </div>
+            {/* <div className={`${styles.wrapper}`}> */}
+            {/* <Card sx={{ margin: "auto", minWidth: "10rem", paddingLeft: 5 }}>
                 <Grid gap={1} columns={2} sx={{ my: 3 }}>
                   <Text>Subtotal:</Text>
                   <Text sx={{ marginLeft: "auto" }}>{subTotal}</Text>
@@ -62,13 +79,13 @@ const CartSidebarView = () => {
                   </Text>
                 </Grid>
               </Card> */}
-            </div>
+            {/* </div> */}
           </div>
-          <div className={styles.container}>
+          <div className={styles.wrapper}>
             {checkoutUrl && (
-              <span className={layoutStyles.submit}>
-                <Link href={checkoutUrl}>Proceed to Checkout</Link>
-              </span>
+              <Link href={checkoutUrl} className={styles.checkout}>
+                Proceed to Checkout
+              </Link>
             )}
           </div>
         </>

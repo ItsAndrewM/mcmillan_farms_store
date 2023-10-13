@@ -17,6 +17,7 @@ import Head from "next/head";
 import { useAddItemToCart } from "@/lib/hooks/useAddItemToCart";
 import swellConfig from "@/config/swell.config";
 import swell from "swell-js";
+import { useUI } from "@/lib/uiContext";
 
 export const getStaticPaths = async () => {
   const paths = await getAllProductPaths();
@@ -55,6 +56,7 @@ const Page = ({ product, cross_sells }) => {
   const [added, setAdded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [buttonText, setButtonText] = useState("Add to Cart");
+  const { openSidebar } = useUI();
 
   const addItem = useAddItemToCart();
 
@@ -68,25 +70,16 @@ const Page = ({ product, cross_sells }) => {
         setTimeout(() => {
           setButtonText("Add to Cart");
           setAdded(false);
-        }, 2000);
+        }, 4000);
       }
-      openSidebar();
+      // openSidebar();
       setLoading(false);
     } catch (err) {
+      console.log(err);
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    const formatCurrency = async () => {
-      await swell.init(swellConfig.storeId, swellConfig.publicKey);
-      const CAD = await swell.currency.format(product.price);
-      console.log(CAD);
-    };
-    if (product) {
-      formatCurrency();
-    }
-  });
   if (!product && !cross_sells) {
     return (
       <Layout>
@@ -130,7 +123,7 @@ const Page = ({ product, cross_sells }) => {
             >
               <h1 className={utilStyles.uppercase}>{product.name}</h1>
               <p>
-                {"CAD"} ${product.price.toFixed(2)}
+                {product.currency} ${product.price.toFixed(2)}
               </p>
               <small>Shipping calculated at checkout</small>
             </div>
@@ -138,7 +131,12 @@ const Page = ({ product, cross_sells }) => {
               <small className={`${utilStyles.uppercase} ${utilStyles.bold}`}>
                 Quantity
               </small>
-              <Quantity quantity={quantity} setQuantity={setQuantity} />
+              <Quantity
+                quantity={quantity}
+                setQuantity={setQuantity}
+                stock_level={product.stock_level}
+                min={1}
+              />
               <InStock product={product} />
             </div>
             <div className={styles.container}>

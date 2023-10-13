@@ -210,6 +210,11 @@
   position: relative;
 }
 
+.button svg {
+  position: relative;
+  top: 4px;
+}
+
 .button:hover,
 .button:focus {
   box-shadow: inset 14em 0 0 0 var(--brown);
