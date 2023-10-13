@@ -8,7 +8,7 @@ import layoutStyles from "../../layout/layout.module.css";
 import Link from "next/link";
 import logo from "@/assets/logo/logo_large.png";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { mobileMenu } from "@/data/mobileMenu";
 import { socialLinks } from "@/data/socialLinks";
 import AnnoucementBar from "../announcementBar/announcementBar";
@@ -16,6 +16,7 @@ import Bag from "@/components/icons/bag";
 import UserNav from "@/components/cart/userNav/userNav";
 import { getAllCollections } from "@/lib/operations-swell";
 import { useCart } from "@/lib/hooks/useCart";
+import { useUI } from "@/lib/uiContext";
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
@@ -23,7 +24,9 @@ const NavBar = () => {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
   const [categories, setCategories] = useState([]);
+  const { openSidebar } = useUI();
   const cart = useCart();
+  const ref = useRef();
   const quantity = cart?.item_quantity ?? 0;
   const [today, setToday] = useState(
     new Date().toLocaleDateString("en-us", { month: "long", day: "numeric" })
@@ -112,7 +115,7 @@ const NavBar = () => {
       <nav className={navbarStyles.navigation}>
         {/* mobile menu */}
         <div id={navbarStyles.menuToggle}>
-          <input type="checkbox" />
+          <input type="checkbox" ref={ref} />
           <span></span>
           <span></span>
           <span></span>
@@ -141,17 +144,18 @@ const NavBar = () => {
               className={navbarStyles.borderBottom}
               style={{ display: "flex", justifyContent: "center" }}
             >
-              <Link
-                href={"/cart"}
-                className={layoutStyles.button}
-                style={{
-                  width: "100%",
-                  textAlign: "center",
-                  alignItems: "center",
+              <button
+                className={`${layoutStyles.button} ${navbarStyles.cartButton}`}
+                onClick={() => {
+                  ref.current.checked = false;
+                  openSidebar();
                 }}
               >
-                Cart ({quantity}) <Bag />
-              </Link>
+                <span>Cart</span>
+                <span>
+                  <Bag />
+                </span>
+              </button>
             </li>
             <li
               className={navbarStyles.borderTop}

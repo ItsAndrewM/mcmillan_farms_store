@@ -75,9 +75,6 @@
 /* //////////////////////////////////////////////////////////////// */
 
 @media (max-width: 600px) {
-  .container {
-    flex-direction: column !important;
-  }
   .wrapper {
     justify-content: center;
     margin: 0;

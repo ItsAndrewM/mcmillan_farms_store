@@ -73,7 +73,7 @@ const Page = ({ product, cross_sells }) => {
           setAdded(false);
         }, 4000);
       }
-      // openSidebar();
+      openSidebar();
       setLoading(false);
     } catch (err) {
       console.log(err);
