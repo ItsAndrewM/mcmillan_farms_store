@@ -159,7 +159,7 @@ const Page = ({ product, cross_sells }) => {
                         across Canada using Canada Post. Orders will likely be
                         shipped within 1-2 business days of ordering. All
                         shipping times are estimated to be 3-10 business days,
-                        depending on your in Canada you're located.
+                        depending on your in Canada you&apos;re located.
                       </p>
                     </div>
                     <div>
@@ -167,8 +167,8 @@ const Page = ({ product, cross_sells }) => {
                         International Shipping
                       </p>
                       <p>
-                        Currently, we're only offering local pick up and Canada
-                        wide shipping.
+                        Currently, we&apos;re only offering local pick up and
+                        Canada wide shipping.
                       </p>
                     </div>
                     <div>
