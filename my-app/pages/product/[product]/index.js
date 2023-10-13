@@ -1,7 +1,7 @@
 import Layout from "@/components/ui/layout/layout";
 import { getAllProductPaths, getProduct } from "@/lib/operations-swell";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import LoadingDots from "@/components/loadingDots/loadingDots";
 import styles from "@/styles/product.module.css";
@@ -15,6 +15,8 @@ import sideBySide from "@/assets/images/apparel/headwear/hat_black_white_black.j
 import CrossSell from "@/components/blocks/crossSell/crossSell";
 import Head from "next/head";
 import { useAddItemToCart } from "@/lib/hooks/useAddItemToCart";
+import swellConfig from "@/config/swell.config";
+import swell from "swell-js";
 
 export const getStaticPaths = async () => {
   const paths = await getAllProductPaths();
@@ -75,6 +77,16 @@ const Page = ({ product, cross_sells }) => {
     }
   };
 
+  useEffect(() => {
+    const formatCurrency = async () => {
+      await swell.init(swellConfig.storeId, swellConfig.publicKey);
+      const CAD = await swell.currency.format(product.price);
+      console.log(CAD);
+    };
+    if (product) {
+      formatCurrency();
+    }
+  });
   if (!product && !cross_sells) {
     return (
       <Layout>
@@ -118,7 +130,7 @@ const Page = ({ product, cross_sells }) => {
             >
               <h1 className={utilStyles.uppercase}>{product.name}</h1>
               <p>
-                {product.currency} ${product.price.toFixed(2)}
+                {"CAD"} ${product.price.toFixed(2)}
               </p>
               <small>Shipping calculated at checkout</small>
             </div>

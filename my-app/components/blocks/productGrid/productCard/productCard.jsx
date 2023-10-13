@@ -40,7 +40,7 @@ const ProductCard = ({ item }) => {
       </Link>
       <Link href={`/product/${item.slug}`}>
         <small>
-          {item.currency}${item.price.toFixed(2)}
+          {"CAD"}${item.price.toFixed(2)}
         </small>
       </Link>
     </li>
