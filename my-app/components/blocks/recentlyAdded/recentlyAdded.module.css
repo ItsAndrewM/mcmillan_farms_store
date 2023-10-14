@@ -53,4 +53,7 @@
     min-width: 222px;
     max-width: 222px;
   }
+  .wrapper {
+    gap: 3em;
+  }
 }
