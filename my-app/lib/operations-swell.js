@@ -8,6 +8,15 @@ import swellConfig from "@/config/swell.config";
 //     isDemo?: boolean
 // }
 
+export const getNewProducts = async () => {
+  await swell.init(swellConfig.storeId, swellConfig.publicKey);
+  const products = await swell.products.list({
+    limit: 6,
+    page: 1,
+  });
+  return products ? normalizeProducts(products?.results) : [];
+};
+
 export const getFilteredProducts = async (query) => {
   await swell.init(swellConfig.storeId, swellConfig.publicKey);
   // const products = await swell.products.list({ limit: 24 });

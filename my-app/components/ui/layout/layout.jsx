@@ -10,9 +10,9 @@ import { useEffect } from "react";
 import Footer from "../footer/footer";
 import { CommerceProvider } from "@/lib/commerceProvider";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, home }) => {
   const { displaySidebar, closeSidebar } = useUI();
-
+  console.log(home);
   const siteTitle = "Shop Online | McMillan Farms Apparel";
   const siteDesc =
     "Everything McMillan Farms - apparel, headwear, accessories. Making sure you look good on and off the farm.";
@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
       </div>
 
       <NavBar />
-      <main className={styles.main}>{children}</main>
+      <main className={` ${home ? styles.home : styles.main}`}>{children}</main>
       <Sidebar open={displaySidebar} onClose={closeSidebar}>
         <CartSidebarView />
       </Sidebar>

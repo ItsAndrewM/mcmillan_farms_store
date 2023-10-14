@@ -1,13 +1,15 @@
 import Head from "next/head";
 import Layout from "@/components/ui/layout/layout";
 import layoutStyles from "@/components/ui/layout/layout.module.css";
+import Hero from "@/components/blocks/hero/hero";
+import hero from "@/assets/images/assets/tractor_trailer.jpg";
 
 export default function Home() {
   const siteTitle = "Shop Online | McMillan Farms Apparel";
   const siteDesc =
     "Everything McMillan Farms - apparel, headwear, accessories. Making sure you look good on and off the farm.";
   return (
-    <Layout>
+    <Layout home>
       <Head>
         <title>{siteTitle}</title>
         <meta name="description" content={siteDesc} key="desc" />
@@ -32,9 +34,15 @@ export default function Home() {
         <meta name="twitter:description" content={`${siteDesc}`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className={layoutStyles.section}>
-        This is the store mcmillan farms
-      </section>
+      {/* <section className={layoutStyles.section}> */}
+      <Hero
+        imageSrc={hero}
+        header={"For on and off the farm"}
+        linkText={"Shop Now"}
+        link={"/collections"}
+        altText={"farmer on a tractor pulling a trailer"}
+      />
+      {/* </section> */}
     </Layout>
   );
 }

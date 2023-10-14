@@ -1,0 +1,87 @@
+.heroWrapper {
+  min-width: 100vw;
+  width: 100%;
+  max-width: 100vw;
+  height: 750px;
+  min-height: 750px;
+  padding: 2em 0;
+  position: relative;
+  z-index: 1;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  position: absolute;
+  top: 90px;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 3em;
+  color: white;
+  gap: 0.5em;
+}
+
+.container p {
+  width: 300px;
+  font-size: 16px;
+}
+
+.container h1 {
+  font-size: 32px;
+}
+
+.container span > a {
+  text-transform: capitalize;
+}
+
+.container span {
+  margin-top: 2em;
+}
+
+/* //////////////////////////////////////////////////////////////// */
+/* /////////////////////////mobile styling///////////////////////// */
+/* //////////////////////////////////////////////////////////////// */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 1em;
+    /* width: 262px; */
+  }
+
+  .heroWrapper {
+    padding: 1em;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container p,
+  .container h1,
+  .container span {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .container h1 {
+    font-size: var(--mobile-h);
+  }
+  .container span {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+  }
+}
