@@ -56,10 +56,15 @@
 @media (max-width: 600px) {
   .container {
     padding: 0 1em;
+    height: 100%;
+    top: 40%;
     /* width: 262px; */
   }
 
   .heroWrapper {
+    height: 400px;
+    min-height: 400px;
+    max-height: 400px;
     padding: 1em;
     max-width: 100%;
     display: flex;

@@ -74,6 +74,7 @@
   }
   .item {
     max-width: 150px;
+    min-width: 150px;
   }
   .item h3 {
     font-size: 14px;
