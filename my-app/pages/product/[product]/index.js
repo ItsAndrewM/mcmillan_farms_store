@@ -1,7 +1,7 @@
 import Layout from "@/components/ui/layout/layout";
 import { getAllProductPaths, getProduct } from "@/lib/operations-swell";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import LoadingDots from "@/components/loadingDots/loadingDots";
 import styles from "@/styles/product.module.css";
@@ -15,10 +15,10 @@ import sideBySide from "@/assets/images/apparel/headwear/hat_black_white_black.j
 import CrossSell from "@/components/blocks/crossSell/crossSell";
 import Head from "next/head";
 import { useAddItemToCart } from "@/lib/hooks/useAddItemToCart";
-import swellConfig from "@/config/swell.config";
-import swell from "swell-js";
 import { useUI } from "@/lib/uiContext";
 import Loading from "./loading";
+import ContactUs from "@/components/blocks/contactUs/contactUs";
+import cartSidebarViewStyles from "@/components/cart/cartSidebarView/cartSidebarView.module.css";
 
 export const getStaticPaths = async () => {
   const paths = await getAllProductPaths();
@@ -141,7 +141,12 @@ const Page = ({ product, cross_sells }) => {
               <InStock product={product} />
             </div>
             <div className={styles.container}>
-              <button name="add-to-cart" disabled={loading} onClick={addToCart}>
+              <button
+                name="add-to-cart"
+                disabled={loading}
+                onClick={addToCart}
+                className={`${cartSidebarViewStyles.checkout} ${styles.checkout}`}
+              >
                 {loading ? <LoadingDots /> : <span>{buttonText}</span>}
               </button>
             </div>
@@ -210,6 +215,14 @@ const Page = ({ product, cross_sells }) => {
           className={`${styles.wrapper} ${utilStyles.columnFlex} ${utilStyles.alignCenter}`}
         >
           <CrossSell cross_sells={cross_sells} />
+          <ContactUs
+            para={"Have a question?"}
+            link={"/contact-us"}
+            linkText={"Contact Us"}
+            small={
+              "We're happy to answer any questions you may have about our products or any other general inquiries. Send us a note!"
+            }
+          />
         </div>
       </section>
     </Layout>
