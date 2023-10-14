@@ -1,0 +1,70 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--cream);
+  padding: 2em;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.container > div:last-child {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.textWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textWrapper p,
+.textWrapper small {
+  text-align: left;
+  width: 100%;
+}
+
+/* //////////////////////////////////////////////////////////////// */
+/* /////////////////////////mobile styling///////////////////////// */
+/* //////////////////////////////////////////////////////////////// */
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 1em;
+  }
+  .container,
+  .box {
+    flex-direction: column;
+  }
+
+  .container {
+    gap: 1.5em;
+  }
+
+  .textWrapper p,
+  .textWrapper small {
+    text-align: center;
+  }
+}

@@ -3,8 +3,23 @@ import Layout from "@/components/ui/layout/layout";
 import layoutStyles from "@/components/ui/layout/layout.module.css";
 import Hero from "@/components/blocks/hero/hero";
 import hero from "@/assets/images/assets/tractor_trailer.jpg";
+import RecentlyAdded from "@/components/blocks/recentlyAdded/recentlyAdded";
+import { getNewProducts } from "@/lib/operations-swell";
+import ContactUs from "@/components/blocks/contactUs/contactUs";
+import CtaLeftColoured from "@/components/blocks/ctaLeftColoured/ctaLeftColoured";
+import sideBySide from "@/assets/images/apparel/headwear/hat_black_white_black.jpg";
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const products = await getNewProducts();
+
+  return {
+    props: {
+      products: products || null,
+    },
+  };
+};
+
+export default function Home({ products }) {
   const siteTitle = "Shop Online | McMillan Farms Apparel";
   const siteDesc =
     "Everything McMillan Farms - apparel, headwear, accessories. Making sure you look good on and off the farm.";
@@ -34,7 +49,6 @@ export default function Home() {
         <meta name="twitter:description" content={`${siteDesc}`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <section className={layoutStyles.section}> */}
       <Hero
         imageSrc={hero}
         header={"For on and off the farm"}
@@ -42,7 +56,26 @@ export default function Home() {
         link={"/collections"}
         altText={"farmer on a tractor pulling a trailer"}
       />
-      {/* </section> */}
+      <section className={layoutStyles.section}>
+        <RecentlyAdded items={products} />
+        <CtaLeftColoured
+          imageSrc={sideBySide}
+          headline={"Inspired by the farm"}
+          desc={
+            "We are proud to introduce our new line of apparel, featuring designs that reflect the heritage and history of our family farm. Our clothing is designed to withstand the challenges of farming, while also looking fashionable and comfortable."
+          }
+          altText={"2 people side be side wearing farm hats"}
+          tag={"Making sure you look good on and off the farm"}
+        />
+        <ContactUs
+          para={"Have a question?"}
+          link={"/contact-us"}
+          linkText={"Contact Us"}
+          small={
+            "We're happy to answer any questions you may have about our products or any other general inquiries. Send us a note!"
+          }
+        />
+      </section>
     </Layout>
   );
 }

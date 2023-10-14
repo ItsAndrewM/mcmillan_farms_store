@@ -1,0 +1,56 @@
+.box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.box > div:last-child {
+  display: flex;
+  justify-content: center;
+}
+
+.box > h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-self: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  gap: 5em;
+  padding: 2em;
+}
+
+.items {
+  width: 100%;
+  max-width: 450px;
+  min-width: 450px;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.button {
+  margin-bottom: 2em;
+}
+
+.button:hover {
+  box-shadow: inset 146px 0 0 0 var(--orange);
+}
+
+/* //////////////////////////////////////////////////////////////// */
+/* /////////////////////////mobile styling///////////////////////// */
+/* //////////////////////////////////////////////////////////////// */
+
+@media (max-width: 600px) {
+  .items {
+    min-width: 222px;
+    max-width: 222px;
+  }
+}
