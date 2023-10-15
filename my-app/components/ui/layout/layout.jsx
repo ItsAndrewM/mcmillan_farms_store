@@ -12,7 +12,6 @@ import { CommerceProvider } from "@/lib/commerceProvider";
 
 const Layout = ({ children, home }) => {
   const { displaySidebar, closeSidebar } = useUI();
-  console.log(home);
   const siteTitle = "Shop Online | McMillan Farms Apparel";
   const siteDesc =
     "Everything McMillan Farms - apparel, headwear, accessories. Making sure you look good on and off the farm.";
@@ -42,6 +41,24 @@ const Layout = ({ children, home }) => {
                 
                   gtag('config', 'G-5H4S7683HG');`}
         </Script>
+        {/* <Script>
+          {`window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1049397923153582',
+      xfbml      : true,
+      version    : 'v18.0'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));`}
+        </Script> */}
       </div>
 
       <NavBar />
