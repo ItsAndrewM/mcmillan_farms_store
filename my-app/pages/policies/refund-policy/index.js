@@ -15,7 +15,7 @@ const Page = () => {
           <small>
             To be eligible for a return, your item must be in the same condition
             that you received it, unworn or unused, with tags, and in its
-            original packaging. You'll also need the receipt or proof of
+            original packaging. You&apos;ll also need the receipt or proof of
             purchase.
           </small>
           <small>
