@@ -22,9 +22,9 @@ const Page = () => {
             To start a return, you can contact us at
             information@mcmillanfarms.ca. Please note that returns will need to
             be sent to the following address: 1-3690 Bearad Road, Kelowna, BC,
-            V1W4A9, Canada. If your return is accepted, we’ll send you a return
-            shipping label, as well as instructions on how and where to send
-            your package. Items sent back to us without first requesting a
+            V1W4A9, Canada. If your return is accepted, we&apos;ll send you a
+            return shipping label, as well as instructions on how and where to
+            send your package. Items sent back to us without first requesting a
             return will not be accepted.
           </small>
           <small>
@@ -60,15 +60,16 @@ const Page = () => {
             Refunds
           </small>
           <small>
-            We will notify you once we’ve received and inspected your return to
-            let you know if the refund was approved or not. If approved, you’ll
-            be automatically refunded on your original payment method within 10
-            business days. Please remember it can take some time for your bank
-            or credit card company to process and post the refund too.
+            We will notify you once we&apos;ve received and inspected your
+            return to let you know if the refund was approved or not. If
+            approved, you&apos;ll be automatically refunded on your original
+            payment method within 10 business days. Please remember it can take
+            some time for your bank or credit card company to process and post
+            the refund too.
           </small>
           <small>
-            If more than 15 business days have passed since we’ve approved your
-            return, please contact us at armcmillan22@gmail.com.
+            If more than 15 business days have passed since we&apos;ve approved
+            your return, please contact us at information@mcmillanfarms.ca.
           </small>
         </div>
       </div>
