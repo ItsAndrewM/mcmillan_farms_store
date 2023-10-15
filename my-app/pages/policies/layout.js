@@ -3,7 +3,7 @@ import layoutStyles from "@/components/ui/layout/layout.module.css";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-
+import utilStyles from "@/styles/utils.module.css";
 const LayoutPolicies = ({ children }) => {
   const router = useRouter();
   const [path, setPath] = useState(
@@ -28,8 +28,16 @@ const LayoutPolicies = ({ children }) => {
     <Layout>
       <Head>
         <title>{`${path} | McMillan Farms`}</title>
+        <meta
+          name="description"
+          content={`McMillan Farms ${path}`}
+          key="desc"
+        />
       </Head>
-      <section className={layoutStyles.section}>{children}</section>
+      <section className={layoutStyles.section}>
+        <h1 className={utilStyles.uppercase}>{path}</h1>
+        {children}
+      </section>
     </Layout>
   );
 };
