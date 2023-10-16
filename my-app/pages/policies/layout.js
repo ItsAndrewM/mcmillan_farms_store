@@ -20,7 +20,6 @@ const LayoutPolicies = ({ children }) => {
       " " +
       path.charAt(index + 1).toUpperCase() +
       path.substring(index + 2, path.length);
-    console.log(newPath);
     setPath(newPath);
   }, [path]);
 

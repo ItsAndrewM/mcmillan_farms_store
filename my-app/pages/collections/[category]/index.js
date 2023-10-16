@@ -1,11 +1,8 @@
-import LoadingDots from "@/components/loadingDots/loadingDots";
 import Layout from "@/components/ui/layout/layout";
 import { getAllCollectionPaths, getCollection } from "@/lib/operations-swell";
 import styles from "@/styles/collections.module.css";
 import Head from "next/head";
 import layoutStyles from "@/components/ui/layout/layout.module.css";
-import Link from "next/link";
-import Image from "next/image";
 import Filter from "@/components/filter/filter";
 import ProductGrid from "@/components/blocks/productGrid/productGrid";
 import Loading from "../loading";
@@ -49,7 +46,7 @@ const Page = ({ category }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className={layoutStyles.section}>
+      <section className={`${layoutStyles.section}`}>
         <div className={styles.container}>
           <h1 style={{ textTransform: "uppercase" }}>{category.name}</h1>
         </div>

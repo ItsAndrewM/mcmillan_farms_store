@@ -56,9 +56,9 @@ const Footer = () => {
                                 className={styles.link}
                                 href={subMenuItem.link}
                               >
-                                <span>
-                                  {subMenuItem.icon && subMenuItem.icon}
-                                </span>
+                                {subMenuItem.icon && (
+                                  <span>{subMenuItem.icon}</span>
+                                )}
                                 <span>{subMenuItem.name}</span>
                               </Link>
                             </li>

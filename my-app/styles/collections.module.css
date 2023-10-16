@@ -8,19 +8,34 @@
 .grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(24%, 1fr));
   gap: 1em;
   justify-items: center;
 }
 
+.wrapper {
+  height: 100%;
+}
+
 .item {
   width: 100%;
-  max-width: 375px;
-  min-width: 375px;
+  max-width: 250px;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.item:hover {
+  opacity: 0.8;
+}
+
+.item img {
+  /* min-height: 375px; */
+  object-fit: cover;
 }
 
 .skeletonGap {

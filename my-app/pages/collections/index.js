@@ -36,7 +36,7 @@ const Page = ({ products }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className={layoutStyles.section}>
+      <section className={`${styles.wrapper} ${layoutStyles.section}`}>
         <div className={styles.container}>
           <h1 style={{ textTransform: "uppercase" }}>Products</h1>
         </div>

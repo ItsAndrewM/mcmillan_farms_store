@@ -4,12 +4,38 @@ export const footerData = [
   {
     name: "Shop",
     link: "/collections",
-    submenu: [],
+    submenu: [
+      {
+        name: "Apparel",
+        link: "/collections/apparel",
+      },
+      {
+        name: "Headwear",
+        link: "/collections/headwear",
+      },
+    ],
   },
   {
-    name: "contact us",
+    name: "Support",
     link: "/contact-us",
-    submenu: [],
+    submenu: [
+      {
+        name: "Return Policy",
+        link: "/policies/return-policy",
+      },
+      {
+        name: "Shipping Policy",
+        link: "/policies/shipping-policy",
+      },
+      {
+        name: "Privacy Policy",
+        link: "/policies/privacy-policy",
+      },
+      {
+        name: "Terms and Conditions",
+        link: "/policies/terms-and-conditions",
+      },
+    ],
   },
   {
     name: "follow us",

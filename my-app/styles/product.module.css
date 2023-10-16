@@ -126,6 +126,24 @@
   box-shadow: inset 530px 0 0 0 var(--orange);
 }
 
+.onSale {
+  color: var(--green);
+}
+
+.saleBadge {
+  padding: 0.5em 1em;
+  background-color: var(--orange);
+  color: var(--cream);
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.originalPrice {
+  color: var(--red);
+  text-decoration: line-through;
+  margin-right: 1em;
+}
+
 /* //////////////////////////////////////////////////////////////// */
 /* /////////////////////////mobile styling///////////////////////// */
 /* //////////////////////////////////////////////////////////////// */

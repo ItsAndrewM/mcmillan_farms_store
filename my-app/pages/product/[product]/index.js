@@ -123,9 +123,24 @@ const Page = ({ product, cross_sells }) => {
               }}
             >
               <h1 className={utilStyles.uppercase}>{product.name}</h1>
-              <p>
-                {product.currency} ${product.price.toFixed(2)}
-              </p>
+              {!product.orig_price ? (
+                <p>
+                  {product.currency} ${product.price.toFixed(2)}
+                </p>
+              ) : (
+                <>
+                  <p className={styles.saleBadge}>ON SALE</p>
+                  <p>
+                    <span className={styles.originalPrice}>
+                      {product.currency} ${product.orig_price.toFixed(2)}
+                    </span>
+                    <span className={styles.onSale}>
+                      {product.currency} ${product.price.toFixed(2)}
+                    </span>
+                  </p>
+                </>
+              )}
+
               <small>Shipping calculated at checkout</small>
             </div>
             <div className={styles.container}>

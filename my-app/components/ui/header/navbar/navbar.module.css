@@ -33,12 +33,12 @@
   position: absolute;
   /* top: 2.7em;
   left: 22em; */
-  margin-top: 1.5em;
+  margin-top: 1em;
   display: flex;
   gap: 0.5em;
   flex-direction: column;
   align-items: flex-start;
-  background-color: white;
+  background-color: var(--cream);
   padding: 0 1em 1em 1em;
 }
 
