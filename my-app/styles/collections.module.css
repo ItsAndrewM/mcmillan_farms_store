@@ -17,6 +17,18 @@
   height: 100%;
 }
 
+.saleBox {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 0.5em;
+}
+
+.saleBox > span {
+  margin-right: 0;
+}
+
 .item {
   width: 100%;
   max-width: 250px;

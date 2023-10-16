@@ -157,9 +157,11 @@
   #menu {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     gap: 1em;
     position: absolute;
     width: 200px;
+    min-height: 100vh;
     height: 600px;
     box-shadow: 0 0 10px #85888c;
     margin: -40px 0 0 -20px;
@@ -182,9 +184,7 @@
   }
 
   #social {
-    border-top: 1px solid var(--grey);
     padding-top: 1em;
-    margin-top: 10em;
     display: flex;
     width: 100%;
     justify-content: space-between;

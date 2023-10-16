@@ -4,6 +4,7 @@ import styles from "@/styles/collections.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import productStyles from "@/styles/product.module.css";
 
 const ProductCard = ({ item }) => {
   const [loading, setLoading] = useState(false);
@@ -21,6 +22,8 @@ const ProductCard = ({ item }) => {
       setLoading(false);
     }
   };
+
+  console.log(item);
   return (
     <li key={item.id} className={styles.item}>
       <Link href={`/product/${item.slug}`}>
@@ -40,9 +43,23 @@ const ProductCard = ({ item }) => {
         <h3>{item.name}</h3>
       </Link>
       <Link href={`/product/${item.slug}`}>
-        <small>
-          {item.currency} ${item.price.toFixed(2)}
-        </small>
+        {!item.orig_price ? (
+          <small>
+            {item.currency} ${item.price.toFixed(2)}
+          </small>
+        ) : (
+          <small className={styles.saleBox}>
+            <span
+              className={productStyles.originalPrice}
+              style={{ margin: "none" }}
+            >
+              ${item.orig_price.toFixed(2)}
+            </span>
+            <span className={productStyles.onSale}>
+              {item.currency} ${item.price.toFixed(2)}
+            </span>
+          </small>
+        )}
       </Link>
     </li>
   );
