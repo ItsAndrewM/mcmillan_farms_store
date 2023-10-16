@@ -23,7 +23,6 @@ const ProductCard = ({ item }) => {
     }
   };
 
-  console.log(item);
   return (
     <li key={item.id} className={styles.item}>
       <Link href={`/product/${item.slug}`}>
