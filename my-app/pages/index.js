@@ -34,12 +34,21 @@ export default function Home({ products }) {
         <meta property="og:title" content={`${siteTitle}`} />
         <meta property="og:type" content="website" />
         <meta property="og:description" content={`${siteDesc}`} />
-        <meta property="og:image" content={`${logo}`} />
-        <meta property="og:image:secure_url" content={`${logo}`} />
+        <meta
+          property="og:image"
+          content="https://cdn.swell.store/mcmillan-farms/6531bcc8a39e7c0012b0e602/f7334c26221da476faaacdb2547ad8ad"
+        />
+        <meta
+          property="og:image:secure_url"
+          content="https://cdn.swell.store/mcmillan-farms/6531bcc8a39e7c0012b0e602/f7334c26221da476faaacdb2547ad8ad"
+        />
         <meta property="og:image:width" content="1366" />
         <meta property="og:image:height" content="768" />
         <meta name="twitter:site" content="@" />
-        <meta name="twitter:card" content={`${logo}`} />
+        <meta
+          name="twitter:card"
+          content="https://cdn.swell.store/mcmillan-farms/6531bcc8a39e7c0012b0e602/f7334c26221da476faaacdb2547ad8ad"
+        />
         <meta name="twitter:title" content={`${siteTitle}`} />
         <meta name="twitter:description" content={`${siteDesc}`} />
         <link rel="icon" href="/favicon.ico" />

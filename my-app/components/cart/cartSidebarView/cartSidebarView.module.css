@@ -84,7 +84,14 @@
   max-width: 1400px;
   height: 100%;
   color: inherit;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
+
+.cartItemsWrapper::-webkit-scrollbar {
+  display: none;
+}
+
 /* //////////////////////////////////////////////////////////////// */
 /* /////////////////////////mobile styling///////////////////////// */
 /* //////////////////////////////////////////////////////////////// */
