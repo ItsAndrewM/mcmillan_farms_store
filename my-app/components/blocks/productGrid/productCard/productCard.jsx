@@ -36,6 +36,9 @@ const ProductCard = ({ item }) => {
             width={375}
             height={375}
           />
+          {item.stock_status.includes("out_of_stock") && (
+            <span className={styles.soldOut}>SOLD OUT</span>
+          )}
         </div>
       </Link>
       <Link href={`/product/${item.slug}`}>

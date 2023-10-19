@@ -1,0 +1,33 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  display: flex;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  align-self: flex-start;
+}
+
+.wrapper > li {
+  min-width: 250px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.button {
+  background-color: inherit;
+  border: none;
+}
+
+.button > svg {
+  color: black;
+}

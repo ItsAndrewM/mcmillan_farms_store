@@ -43,6 +43,7 @@ export const getStaticProps = async ({ params }) => {
       }
     }
   }
+  console.log(product);
   return {
     props: {
       product: product || null,
@@ -156,14 +157,20 @@ const Page = ({ product, cross_sells }) => {
               <InStock product={product} />
             </div>
             <div className={styles.container}>
-              <button
-                name="add-to-cart"
-                disabled={loading}
-                onClick={addToCart}
-                className={`${cartSidebarViewStyles.checkout} ${styles.checkout}`}
-              >
-                {loading ? <LoadingDots /> : <span>{buttonText}</span>}
-              </button>
+              {product.stock_status.includes("out_of_stock") ? (
+                <span className={`${styles.soldOut} ${utilStyles.uppercase}`}>
+                  Sold out
+                </span>
+              ) : (
+                <button
+                  name="add-to-cart"
+                  disabled={loading}
+                  onClick={addToCart}
+                  className={`${cartSidebarViewStyles.checkout} ${styles.checkout}`}
+                >
+                  {loading ? <LoadingDots /> : <span>{buttonText}</span>}
+                </button>
+              )}
             </div>
             <div className={styles.container}>
               <Pickup product={product} />

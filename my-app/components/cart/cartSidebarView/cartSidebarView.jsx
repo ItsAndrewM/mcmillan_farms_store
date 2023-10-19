@@ -37,13 +37,15 @@ const CartSidebarView = () => {
               <div className={styles.header}>
                 <h2>Cart</h2>
               </div>
-              {items.map((item) => (
-                <CartItem
-                  key={item.id}
-                  item={item}
-                  currencyCode={cart?.currency ?? "USD"}
-                />
-              ))}
+              <div className={styles.cartItemsWrapper}>
+                {items.map((item) => (
+                  <CartItem
+                    key={item.id}
+                    item={item}
+                    currencyCode={cart?.currency ?? "USD"}
+                  />
+                ))}
+              </div>
               <div className={styles.borderBottom}></div>
             </div>
             <div className={`${styles.wrapper}`}>

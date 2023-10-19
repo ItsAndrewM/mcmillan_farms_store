@@ -21,7 +21,7 @@ const Pickup = ({ product }) => {
             <Cross width={20} height={20} />
           </div>
           <div>
-            <p>Pickup currently unavailable at Wilson FOF Warehouse</p>
+            <p>Pickup currently unavailable at McMillan Farms</p>
           </div>
         </>
       )}

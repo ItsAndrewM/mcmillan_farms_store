@@ -8,6 +8,7 @@ import { getNewProducts } from "@/lib/operations-swell";
 import ContactUs from "@/components/blocks/contactUs/contactUs";
 import CtaLeftColoured from "@/components/blocks/ctaLeftColoured/ctaLeftColoured";
 import sideBySide from "@/assets/images/apparel/headwear/hat_black_white_black.jpg";
+import logo from "@/assets/logo/logo_large.png";
 
 export const getStaticProps = async () => {
   const products = await getNewProducts();
@@ -33,18 +34,12 @@ export default function Home({ products }) {
         <meta property="og:title" content={`${siteTitle}`} />
         <meta property="og:type" content="website" />
         <meta property="og:description" content={`${siteDesc}`} />
-        <meta
-          property="og:image"
-          content="http://friendsoffelix.com/cdn/shop/files/Social_Share.png?v=1661400648"
-        />
-        <meta
-          property="og:image:secure_url"
-          content="https://friendsoffelix.com/cdn/shop/files/Social_Share.png?v=1661400648"
-        />
+        <meta property="og:image" content={`${logo}`} />
+        <meta property="og:image:secure_url" content={`${logo}`} />
         <meta property="og:image:width" content="1366" />
         <meta property="og:image:height" content="768" />
         <meta name="twitter:site" content="@" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content={`${logo}`} />
         <meta name="twitter:title" content={`${siteTitle}`} />
         <meta name="twitter:description" content={`${siteDesc}`} />
         <link rel="icon" href="/favicon.ico" />
