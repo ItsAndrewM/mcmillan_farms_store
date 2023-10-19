@@ -24,7 +24,7 @@ export const getStaticPaths = async () => {
   const paths = await getAllProductPaths();
   return {
     paths: paths?.map((path) => `/product/${path}`) ?? [],
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -43,7 +43,6 @@ export const getStaticProps = async ({ params }) => {
       }
     }
   }
-  console.log(product);
   return {
     props: {
       product: product || null,
@@ -82,7 +81,7 @@ const Page = ({ product, cross_sells }) => {
     }
   };
 
-  if (!product && !cross_sells) {
+  if (router.isFallback && !product && !cross_sells) {
     return (
       <Layout>
         <Loading />

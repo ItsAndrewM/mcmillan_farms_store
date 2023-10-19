@@ -7,6 +7,7 @@ import Filter from "@/components/filter/filter";
 import ProductGrid from "@/components/blocks/productGrid/productGrid";
 import Loading from "../loading";
 import { Suspense } from "react";
+import { useRouter } from "next/router";
 
 export const getStaticPaths = async () => {
   const paths = await getAllCollectionPaths();
@@ -31,7 +32,9 @@ export const getStaticProps = async ({ params }) => {
 };
 
 const Page = ({ category }) => {
-  if (!category) {
+  const router = useRouter();
+
+  if (router.isFallback && !category) {
     return <Loading />;
   }
   return (
