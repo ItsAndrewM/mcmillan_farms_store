@@ -111,7 +111,7 @@ const Footer = () => {
           </div>
           <div className={`${styles.legal} ${styles.legalContainer}`}>
             <span>
-              <Link className={styles.link} href={"/legal/privacy-policy"}>
+              <Link className={styles.link} href={"/policies/privacy-policy"}>
                 Privacy Policy
               </Link>
             </span>
@@ -119,7 +119,7 @@ const Footer = () => {
             <span>
               <Link
                 className={styles.link}
-                href={"/legal/terms-and-conditions"}
+                href={"/policies/terms-and-conditions"}
               >
                 Terms and Conditions
               </Link>
