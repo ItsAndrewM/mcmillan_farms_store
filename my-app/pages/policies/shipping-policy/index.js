@@ -35,11 +35,11 @@ const Page = () => {
           </small>
           <small>
             Orders are generally shipped within {timeframe}
-            using Canada Post's delivery standard is {shippingTimeFrame}. Flat
-            rate shipping fee of $15.00 applies to orders shipping to Canada.
-            There is an option Express Shipping Flat Rate option at $35.00 which
-            can be selected at checkout. We do not ship outside of Canada at
-            this time.
+            using Canada Post&apos;s delivery standard is {shippingTimeFrame}.
+            Flat rate shipping fee of $15.00 applies to orders shipping to
+            Canada. There is an option Express Shipping Flat Rate option at
+            $35.00 which can be selected at checkout. We do not ship outside of
+            Canada at this time.
           </small>
         </div>
         <div className={styles.text}>
