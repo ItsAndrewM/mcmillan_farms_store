@@ -1,0 +1,10 @@
+# Block all crawlers for /test
+User-agent: *
+Disallow: /test
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+Sitemap: https://www.shop.mcmillanfarms.ca/sitemap.xml
+Sitemap: https://shop.mcmillanfarms.ca/sitemap.xml

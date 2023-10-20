@@ -20,8 +20,8 @@ export const footerData = [
     link: "/contact-us",
     submenu: [
       {
-        name: "Return Policy",
-        link: "/policies/return-policy",
+        name: "Refund Policy",
+        link: "/policies/refund-policy",
       },
       {
         name: "Shipping Policy",
