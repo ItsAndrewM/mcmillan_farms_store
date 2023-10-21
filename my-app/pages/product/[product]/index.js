@@ -101,7 +101,7 @@ const Page = ({ product, cross_sells }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className={`${layoutStyles.section} ${utilStyles.gap2}`}>
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} key={product.id}>
           <div>
             <Image
               alt={product.name}
