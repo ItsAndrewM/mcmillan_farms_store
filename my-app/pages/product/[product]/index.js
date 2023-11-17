@@ -48,6 +48,7 @@ export const getStaticProps = async ({ params }) => {
       product: product || null,
       cross_sells: cross_sells || null,
     },
+    revalidate: 10,
   };
 };
 
