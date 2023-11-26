@@ -35,6 +35,7 @@ const ProductCard = ({ item }) => {
             }
             width={375}
             height={375}
+            alt={item.name}
           />
           {item.stock_status.includes("out_of_stock") && (
             <span className={styles.soldOut}>SOLD OUT</span>
