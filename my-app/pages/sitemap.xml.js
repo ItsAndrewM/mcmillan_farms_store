@@ -3,7 +3,7 @@ import {
   getAllProductPaths,
 } from "@/lib/operations-swell";
 
-const EXTERNAL_DATA_URL = "shop.mcmillanfarms.ca";
+const EXTERNAL_DATA_URL = "https://shop.mcmillanfarms.ca";
 
 const generateSiteMap = (collections, products) => {
   return `<?xml version="1.0" encoding="UTF-8"?>
