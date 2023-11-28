@@ -44,26 +44,26 @@ const ModalContent = ({ onClose, setShowModal }) => {
         if (!id) {
           await swell.init(swellConfig.storeId, swellConfig.publicKey);
           const response = await swell.account.create(data);
-          console.log(response);
           // await localStorage.setItem("account-id", response.id);
-          if (!response || response.errors) {
-            setLoading(false);
+          // if (!response || response.errors) {
+          //   setLoading(false);
 
-            throw new Error(`Invalid response: ${response.status}`);
-          } else {
-            const sendEmail = await fetch("/api/coupon-code", {
-              method: "post",
-              body: new URLSearchParams(data),
-            });
-            if (sendEmail.status === 200) {
-              setButtonText("Sent!");
-              setLoading(false);
-              setTimeout(() => {
-                setButtonText("Confirm");
-                setShowModal(false);
-              }, 2000);
-            }
+          //   throw new Error(`Invalid response: ${response.status}`);
+
+          // } else {
+          const sendEmail = await fetch("/api/coupon-code", {
+            method: "post",
+            body: new URLSearchParams(data),
+          });
+          if (sendEmail.status === 200) {
+            setButtonText("Sent!");
+            setLoading(false);
+            setTimeout(() => {
+              setButtonText("Confirm");
+              setShowModal(false);
+            }, 2000);
           }
+          // }
         }
         if (id) {
           const sendEmail = await fetch("/api/coupon-code", {
