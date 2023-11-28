@@ -40,7 +40,6 @@ const ModalContent = ({ onClose, setShowModal }) => {
       try {
         // const id = localStorage.getItem("account-id");
         const id = await swell.account.get();
-        console.log(id);
         if (!id) {
           await swell.init(swellConfig.storeId, swellConfig.publicKey);
           const response = await swell.account.create(data);
@@ -70,6 +69,7 @@ const ModalContent = ({ onClose, setShowModal }) => {
             method: "post",
             body: new URLSearchParams(data),
           });
+          console.log(sendEmail);
           if (sendEmail.status === 200) {
             setButtonText("Sent!");
             setLoading(false);
