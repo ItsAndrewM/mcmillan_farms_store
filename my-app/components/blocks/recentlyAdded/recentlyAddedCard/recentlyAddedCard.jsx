@@ -14,7 +14,7 @@ const RecentlyAddedCard = ({ item }) => {
                 : item.images[0].file.url
             }
             width={450}
-            height={450}
+            height={400}
           />
         </div>
       </Link>

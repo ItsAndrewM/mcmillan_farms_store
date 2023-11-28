@@ -46,7 +46,7 @@
 }
 
 .item img {
-  /* min-height: 375px; */
+  min-height: 250px;
   object-fit: cover;
 }
 
@@ -113,5 +113,10 @@
   }
   .item h3 {
     font-size: 14px;
+  }
+
+  .item img {
+    min-width: 150px;
+    min-height: 137px;
   }
 }

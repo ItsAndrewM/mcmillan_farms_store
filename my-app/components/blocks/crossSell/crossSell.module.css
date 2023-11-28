@@ -1,8 +1,7 @@
 .grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
 }
 
 .card {
@@ -12,6 +11,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.card img {
+  min-height: 195px;
 }
 
 .card a {
@@ -37,5 +40,10 @@
   }
   .card {
     min-width: 222px;
+  }
+
+  .card img {
+    min-height: 200px;
+    min-width: 100%;
   }
 }

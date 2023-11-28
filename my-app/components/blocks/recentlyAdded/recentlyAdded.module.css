@@ -36,6 +36,14 @@
   align-items: flex-start;
 }
 
+.items img {
+  object-fit: cover;
+  min-height: 400px;
+  min-width: 450px;
+  max-height: 400px;
+  max-width: 450px;
+}
+
 .button {
   margin-bottom: 2em;
 }
@@ -52,6 +60,12 @@
   .items {
     min-width: 222px;
     max-width: 222px;
+  }
+  .items img {
+    min-width: 222px;
+    max-width: 222px;
+    max-height: 200px;
+    min-height: 200px;
   }
   .wrapper {
     gap: 3em;
