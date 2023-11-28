@@ -2,15 +2,17 @@ import Image from "next/image";
 import styles from "../modal.module.css";
 import image from "@/assets/images/assets/cam_hat.jpeg";
 import swellConfig from "@/config/swell.config";
-import swell from "swell-js";
-import { useEffect, useRef, useState } from "react";
+// import swell from "swell-js";
+import { useContext, useEffect, useRef, useState } from "react";
 import LoadingDots from "@/components/loadingDots/loadingDots";
+import { Context } from "@/lib/context";
 
 const ModalContent = ({ onClose, setShowModal }) => {
   const [value, setValue] = useState("");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [buttonText, setButtonText] = useState("Confirm");
+  const { swell } = useContext(Context);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -38,11 +40,15 @@ const ModalContent = ({ onClose, setShowModal }) => {
       try {
         // const id = localStorage.getItem("account-id");
         const id = await swell.account.get();
+        console.log(id);
         if (!id) {
           await swell.init(swellConfig.storeId, swellConfig.publicKey);
           const response = await swell.account.create(data);
+          console.log(response);
           // await localStorage.setItem("account-id", response.id);
-          if (!response) {
+          if (!response || response.errors) {
+            setLoading(false);
+
             throw new Error(`Invalid response: ${response.status}`);
           } else {
             const sendEmail = await fetch("/api/coupon-code", {
