@@ -23,7 +23,7 @@ const Quantity = ({
   const increaseQuantity = (n = 1) => {
     const val = Number(quantity) + n;
 
-    if (Number.isInteger(val) && val >= min) {
+    if (Number.isInteger(val) && val <= stock_level && val >= min) {
       setQuantity(val);
     }
   };
