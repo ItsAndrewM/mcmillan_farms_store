@@ -58,6 +58,20 @@ const ModalContent = ({ onClose, setShowModal }) => {
               }, 2000);
             }
           }
+        }
+        if (id) {
+          const sendEmail = await fetch("/api/coupon-code", {
+            method: "post",
+            body: new URLSearchParams(data),
+          });
+          if (sendEmail.status === 200) {
+            setButtonText("Sent!");
+            setLoading(false);
+            setTimeout(() => {
+              setButtonText("Confirm");
+              setShowModal(false);
+            }, 2000);
+          }
         } else {
           setLoading(false);
           setShowModal(false);
