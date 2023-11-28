@@ -60,9 +60,11 @@
 .link {
   position: relative;
   transition: color 0.3s ease-in-out;
+
   /* display: in; */
   gap: 0.5em;
 }
+
 .link > span > svg {
   margin-right: 0.5em;
 }

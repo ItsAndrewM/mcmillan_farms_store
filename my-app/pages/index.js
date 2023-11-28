@@ -9,6 +9,7 @@ import ContactUs from "@/components/blocks/contactUs/contactUs";
 import CtaLeftColoured from "@/components/blocks/ctaLeftColoured/ctaLeftColoured";
 import sideBySide from "@/assets/images/apparel/headwear/hat_black_white_black.jpg";
 import logo from "@/assets/logo/logo_large.png";
+import Modal from "@/components/ui/modal/modal";
 
 export const getStaticProps = async () => {
   const products = await getNewProducts();
@@ -53,6 +54,7 @@ export default function Home({ products }) {
         <meta name="twitter:description" content={`${siteDesc}`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Hero
         imageSrc={hero}
         header={"For on and off the farm"}

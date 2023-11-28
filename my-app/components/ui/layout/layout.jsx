@@ -6,12 +6,14 @@ import Sidebar from "@/components/cart/sidebar/sidebar";
 import CartSidebarView from "@/components/cart/cartSidebarView/cartSidebarView";
 import { ManagedUIContext, useUI } from "@/lib/uiContext";
 import swellConfig from "@/config/swell.config";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../footer/footer";
 import { CommerceProvider } from "@/lib/commerceProvider";
+import Modal from "../modal/modal";
 
 const Layout = ({ children, home }) => {
   const { displaySidebar, closeSidebar } = useUI();
+  const [showModal, setShowModal] = useState(false);
   const siteTitle = "Shop Online | McMillan Farms Apparel";
   const siteDesc =
     "Everything McMillan Farms - apparel, headwear, accessories. Making sure you look good on and off the farm.";
@@ -61,7 +63,9 @@ const Layout = ({ children, home }) => {
         </Script> */}
       </div>
 
-      <NavBar />
+      <NavBar setShowModal={setShowModal} />
+      <Modal setShowModal={setShowModal} showModal={showModal} />
+
       <main className={` ${home ? styles.home : styles.main}`}>{children}</main>
       <Sidebar open={displaySidebar} onClose={closeSidebar}>
         <CartSidebarView />

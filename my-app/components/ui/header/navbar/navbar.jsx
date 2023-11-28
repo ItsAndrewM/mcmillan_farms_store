@@ -18,7 +18,7 @@ import { getAllCollections } from "@/lib/operations-swell";
 import { useCart } from "@/lib/hooks/useCart";
 import { useUI } from "@/lib/uiContext";
 
-const NavBar = () => {
+const NavBar = ({ setShowModal }) => {
   const [show, setShow] = useState(false);
   const [hours, setHours] = useState();
   const pathname = usePathname();
@@ -105,12 +105,13 @@ const NavBar = () => {
       }`}
     >
       <AnnoucementBar
-        annoucement={"We are now open! Today's hours are"}
-        annoucement2={"Want to book ahead?"}
+        annoucement={"Get 10% off your first order."}
+        annoucement2={"Click the link to get your 10% off code."}
         hours={hours}
         today={today}
         linkText={"Get tickets here!"}
         link={"https://www.showpass.com/o/mcmillan-farms/"}
+        setShowModal={setShowModal}
       />
       <nav className={navbarStyles.navigation}>
         {/* mobile menu */}

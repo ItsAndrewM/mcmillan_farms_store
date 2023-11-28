@@ -11,6 +11,7 @@ const AnnoucementBar = ({
   today,
   hours,
   annoucement2,
+  setShowModal,
 }) => {
   const [isVisible, setIsVisible] = useState(true);
   useEffect(() => {
@@ -34,16 +35,23 @@ const AnnoucementBar = ({
     <div className={`${!isVisible ? styles.hide : styles.wrapper}`}>
       <div>
         <p>
-          {annoucement} <span className={utilStyles.underline}>{hours}</span>,{" "}
+          {annoucement}{" "}
+          {/* <span className={utilStyles.underline}>{hours}</span>,{" "}
           <span className={utilStyles.underline}>
             {today}.{"  "}
-          </span>
+          </span> */}
           {annoucement2}
         </p>
         <span>
-          <Link href={link} className={footerStyles.link}>
+          {/* <Link href={link} className={footerStyles.link}>
             {linkText}
-          </Link>
+          </Link> */}
+          <button
+            className={`${styles.button} ${footerStyles.link}`}
+            onClick={() => setShowModal(true)}
+          >
+            Get Code Now
+          </button>
         </span>
       </div>
     </div>

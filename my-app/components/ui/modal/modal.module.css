@@ -1,0 +1,190 @@
+.container {
+  min-width: 100vw;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: brightness(0.8);
+  z-index: 5;
+}
+
+.modal {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+  background-color: white;
+  border-radius: 12px;
+  position: relative;
+  width: 800px;
+  height: 480px;
+  z-index: 999;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.wrapper > img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 12px 12px 0;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+  border: 1px solid black;
+  transform: rotate(45deg);
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close > span {
+  font-size: 32px;
+  position: relative;
+  top: -3px;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.formGroup {
+  position: relative;
+  padding: 15px 0 0;
+  width: 310px;
+  height: 50px;
+}
+
+.formLabel {
+  position: absolute;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+  background-color: inherit;
+}
+
+.formField:focus ~ .formLabel,
+.formField:not(:placeholder-shown) ~ .formLabel {
+  position: absolute;
+  top: 5px !important;
+  left: 10px;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem !important;
+  font-weight: 700;
+  background-color: white;
+}
+
+.formField:focus {
+  border: 2px solid black;
+}
+
+.formField:required,
+.formField:enabled,
+.formField:empty {
+  box-shadow: none;
+}
+
+.formField {
+  font-family: inherit;
+  width: 100%;
+  border: 2px solid var(--cream);
+  outline: 0;
+  font-size: 1.3rem;
+  color: var(--casBlue);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  text-indent: 10px;
+}
+
+.formField::placeholder {
+  color: transparent;
+}
+
+.formField:placeholder-shown ~ .formLabel {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+  left: 10px;
+}
+
+.formField:not(:empty) {
+  border: 2px solid black;
+}
+
+.confirm {
+  width: 100%;
+  background-color: var(--orange);
+  height: 50px;
+  color: var(--cream);
+  border: none;
+  outline: none;
+}
+
+.error {
+  font-size: 12px;
+  color: var(--orange);
+  line-height: 1.2;
+  height: 14.4px;
+}
+
+/* //////////////////////////////////////////////////////////////// */
+/* /////////////////////////mobile styling///////////////////////// */
+/* //////////////////////////////////////////////////////////////// */
+
+@media (max-width: 600px) {
+  .modal {
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .wrapper > img {
+    padding: 2em;
+    border: none;
+  }
+
+  .modal > div:nth-child(3) {
+    display: none;
+  }
+
+  .modal > div:nth-child(2) {
+    height: 100%;
+  }
+}
