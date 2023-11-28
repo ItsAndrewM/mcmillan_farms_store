@@ -162,15 +162,28 @@ const NavBar = ({ setShowModal }) => {
               className={navbarStyles.borderTop}
               style={{ border: "none", paddingTop: "0" }}
             >
-              Open now! {hours}
+              {/* Open now! {hours} */}
+              Get 10% off your first order!
             </li>
-            <li className={navbarStyles.borderBottom}>
-              <Link
+            <li
+              className={navbarStyles.borderBottom}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              {/* <Link
                 href={"https://www.showpass.com/o/mcmillan-farms/"}
                 className={layoutStyles.button}
               >
                 Book Tickets now!
-              </Link>
+              </Link> */}
+              <button
+                className={layoutStyles.button}
+                onClick={() => {
+                  ref.current.checked = false;
+                  setShowModal(true);
+                }}
+              >
+                Get 10% off
+              </button>
             </li>
             <li>
               <ul id={navbarStyles.social}>
