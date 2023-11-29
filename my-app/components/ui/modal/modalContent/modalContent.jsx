@@ -50,10 +50,15 @@ const ModalContent = ({ onClose, setShowModal }) => {
           //   throw new Error(`Invalid response: ${response.status}`);
 
           // } else {
-          const sendEmail = await fetch("/api/coupon-code", {
-            method: "post",
-            body: new URLSearchParams(data),
-          });
+          const sendEmail = await fetch(
+            process.env.NEXT_PUBLIC_NODE_ENV === "development"
+              ? `${process.env.NEXT_PUBLIC_DEV_URL}/api/coupon-code`
+              : `${process.env.NEXT_PUBLIC_PUBLIC_URL}/api/coupon-code`,
+            {
+              method: "post",
+              body: new URLSearchParams(data),
+            }
+          );
           const confirmed = await sendEmail.json();
           console.log(confirmed);
           if (confirmed === 200) {
