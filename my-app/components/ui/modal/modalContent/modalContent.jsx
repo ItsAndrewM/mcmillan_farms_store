@@ -54,8 +54,9 @@ const ModalContent = ({ onClose, setShowModal }) => {
             method: "post",
             body: new URLSearchParams(data),
           });
-          console.log(sendEmail);
-          if (sendEmail.status === 200) {
+          const confirmed = await sendEmail.json();
+          console.log(confirmed);
+          if (confirmed === 200) {
             setButtonText("Sent!");
             setLoading(false);
             setTimeout(() => {
@@ -70,8 +71,9 @@ const ModalContent = ({ onClose, setShowModal }) => {
             method: "post",
             body: new URLSearchParams(data),
           });
-          console.log(sendEmail);
-          if (sendEmail.status === 200) {
+          const confirmed = await sendEmail.json();
+          console.log(confirmed);
+          if (confirmed === 200) {
             setButtonText("Sent!");
             setLoading(false);
             setTimeout(() => {
