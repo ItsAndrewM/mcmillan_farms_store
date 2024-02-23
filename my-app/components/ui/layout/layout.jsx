@@ -12,67 +12,33 @@ import { CommerceProvider } from "@/lib/commerceProvider";
 import Modal from "../modal/modal";
 
 const Layout = ({ children, home }) => {
-  const { displaySidebar, closeSidebar } = useUI();
-  const [showModal, setShowModal] = useState(false);
-  const siteTitle = "Shop Online | McMillan Farms Apparel";
-  const siteDesc =
-    "Everything McMillan Farms - apparel, headwear, accessories. Making sure you look good on and off the farm.";
-  return (
-    <>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content={siteDesc} />
-        <meta
-          property="og:image"
-          content={`https://mcmillanfarms.xyz/api/og`}
-        />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-      <div className="google-analytics-container">
-        {/* <!-- Google tag (gtag.js) --> */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-5H4S7683HG"
-        />
-        <Script id="google-analytics">
-          {`
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                
-                  gtag('config', 'G-5H4S7683HG');`}
-        </Script>
-        {/* <Script>
-          {`window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1049397923153582',
-      xfbml      : true,
-      version    : 'v18.0'
-    });
-    FB.AppEvents.logPageView();
-  };
+	const { displaySidebar, closeSidebar } = useUI();
+	const [showModal, setShowModal] = useState(false);
+	const siteTitle = "Shop Online | McMillan Farms Apparel";
+	const siteDesc =
+		"Everything McMillan Farms - apparel, headwear, accessories. Making sure you look good on and off the farm.";
+	return (
+		<>
+			<Head>
+				<link rel="icon" href="/favicon.ico" />
+				<meta name="description" content={siteDesc} />
+				<meta
+					property="og:image"
+					content={`https://mcmillanfarms.xyz/api/og`}
+				/>
+				<meta name="og:title" content={siteTitle} />
+				<meta name="twitter:card" content="summary_large_image" />
+			</Head>
+			<NavBar setShowModal={setShowModal} />
+			<Modal setShowModal={setShowModal} showModal={showModal} />
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));`}
-        </Script> */}
-      </div>
-
-      <NavBar setShowModal={setShowModal} />
-      <Modal setShowModal={setShowModal} showModal={showModal} />
-
-      <main className={` ${home ? styles.home : styles.main}`}>{children}</main>
-      <Sidebar open={displaySidebar} onClose={closeSidebar}>
-        <CartSidebarView />
-      </Sidebar>
-      <Footer />
-    </>
-  );
+			<main className={` ${home ? styles.home : styles.main}`}>{children}</main>
+			<Sidebar open={displaySidebar} onClose={closeSidebar}>
+				<CartSidebarView />
+			</Sidebar>
+			<Footer />
+		</>
+	);
 };
 
 export default Layout;
